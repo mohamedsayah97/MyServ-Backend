@@ -1,7 +1,7 @@
 import AdminModel from "../models/admin.js";
 import bcrypt from "bcryptjs";
 
-export const signup = async (req, res) => {
+export const signup = async (req, res, next) => {
     const {  first_name,last_name,email, password } = req.body;
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(password, salt);
@@ -22,7 +22,7 @@ export const signup = async (req, res) => {
             res.status(201).json({ message: "Admin created successfully" });
         })
         .catch((error) => {
-            res.status(500).json({ error: error.message });
+            next(error);
         });
 
 
