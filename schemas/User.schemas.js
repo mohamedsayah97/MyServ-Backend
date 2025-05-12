@@ -1,10 +1,9 @@
 import { z } from "zod";
 
-export const createAdminSchema = z.object({
+export const createUserSchema = z.object({
   body: z
     .object({
-      first_name: z.string(),
-      last_name: z.string(),
+      
       email: z.string().email(),
       password: z
         .string()
@@ -14,11 +13,10 @@ export const createAdminSchema = z.object({
     .strict(),
 });
 
-export const updateAdminSchema = z.object({
+export const updateUserSchema = z.object({
   body: z
     .object({
-      first_name: z.string().optional(),
-      last_name: z.string().optional(),
+      
       email: z.string().email().optional(),
     })
     .strict(),
