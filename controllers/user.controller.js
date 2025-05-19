@@ -47,7 +47,7 @@ const userController = {
   async login(req, res) {
     try {
       const { email, password } = req.body;
-      const user = await userRepo.findOne({ email: email });
+      const user = await userRepo.findOne({ mail: email });
 
       if (!user) {
         return res.status(400).json({ message: "This user is not found!" });
