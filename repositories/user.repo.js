@@ -32,7 +32,7 @@ const userRepo = {
   },
 
   async findById(id) {
-    return await UserModel.findById(id);
+    return await UserModel.findById(id).select("-password");
   },
 
   async findOne(query) {

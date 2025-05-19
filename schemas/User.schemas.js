@@ -3,8 +3,10 @@ import { z } from "zod";
 export const createUserSchema = z.object({
   body: z
     .object({
+      nom: z.string().min(3, "name too short"),
+      prenom: z.string().min(3, "name too short"),
       
-      email: z.string().email(),
+      mail: z.string().email(),
       password: z
         .string()
         .min(5, "password too short")
@@ -17,7 +19,7 @@ export const updateUserSchema = z.object({
   body: z
     .object({
       
-      email: z.string().email().optional(),
+      mail: z.string().email().optional(),
     })
     .strict(),
   params: z
@@ -41,7 +43,7 @@ export const updatePassword = z.object({
 export const loginSchema = z.object({
   body: z
     .object({
-      email: z.string().email(),
+      mail: z.string().email(),
       password: z
         .string()
         .min(5, "password too short")

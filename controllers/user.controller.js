@@ -32,7 +32,7 @@ const userController = {
   async create(req, res) {
     try {
       const data = req.body;
-      const user = await userRepo.findOne({ email: data.email });
+      const user = await userRepo.findOne({ mail: data.mail });
 
       if (user) {
         return res.status(400).json({ message: "This email is already taken" });
@@ -107,6 +107,20 @@ const userController = {
       return res.status(500).json({ message: error.message });
     }
   },
+   async getUser (req, res){
+        try {
+            //find the user by his id
+            const user = await userRepo.findById(req.user.id);
+            if(!user) return res.status(404).json({msg: "This user does not exist !"});
+
+            return res.status(200).json({ message: "fetch successfull",data: user });
+        } catch (error) {
+            return res.status(500).json({msg: error.message})
+        }
+    },
+
+
+  
 };
 
 export default userController;
