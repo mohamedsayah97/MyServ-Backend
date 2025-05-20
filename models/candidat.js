@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { boolean } from 'zod';
 const CandidatSchema = new mongoose.Schema(
   {
        mail: {
@@ -48,13 +47,14 @@ const CandidatSchema = new mongoose.Schema(
       required: true,
     },
     permis_conduire: {
-      type: boolean,
+      type: Boolean,
       required: true,
     },
     statut: {
       type: String,
-      enum: ['En attente', 'Accepté', 'Refusé'],
-      default: 'En attente',
+      enum: ['Célibataire', 'Fiancé', 'Marié', 'Divorcé'],
+      required: true,
+      default: 'Célibataire',
     },
     diplome: {
       type: String,

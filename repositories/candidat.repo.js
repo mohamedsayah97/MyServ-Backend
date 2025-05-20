@@ -1,4 +1,4 @@
-import CandidatModel from "../models/candidat";
+import CandidatModel from "../models/candidat.js";
 
 
 const candidatRepo = {
