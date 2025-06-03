@@ -68,6 +68,10 @@ const CandidatSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+      lien_compteRendu: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
