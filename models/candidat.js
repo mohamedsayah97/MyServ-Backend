@@ -1,10 +1,8 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 const CandidatSchema = new mongoose.Schema(
   {
-       mail: {
+    mail: {
       type: String,
-      required: true,
-      unique: true,
       trim: true,
     },
     nom: {
@@ -17,7 +15,7 @@ const CandidatSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    
+
     dateEntretien: {
       type: Date,
       required: true,
@@ -28,49 +26,41 @@ const CandidatSchema = new mongoose.Schema(
     },
     poste: {
       type: String,
-      required: true,
     },
     circumVitale: {
       type: String,
-      required: true,
     },
     adresse: {
       type: String,
-      required: true,
     },
     telephone: {
       type: String,
-      required: true,
     },
     age: {
       type: Number,
-      required: true,
     },
     permis_conduire: {
       type: Boolean,
-      required: true,
     },
     statut: {
       type: String,
-      enum: ['Célibataire', 'Fiancé', 'Marié', 'Divorcé'],
-      required: true,
-      default: 'Célibataire',
+      enum: ["Célibataire", "Fiancé", "Marié", "Divorcé"],
+      
+      default: "Célibataire",
     },
     diplome: {
       type: String,
-      required: true,
     },
     experience: {
       type: String,
-      required: true,
     },
     feedback: {
       type: String,
       required: true,
     },
-      lien_compteRendu: {
+    lien_compteRendu: {
       type: String,
-      required: true,
+      
     },
   },
   {
@@ -78,5 +68,5 @@ const CandidatSchema = new mongoose.Schema(
   }
 );
 
-const CandidatModel = mongoose.model('Candidats', CandidatSchema);
+const CandidatModel = mongoose.model("Candidats", CandidatSchema);
 export default CandidatModel;

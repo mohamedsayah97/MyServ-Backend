@@ -10,7 +10,7 @@ import { validateRequest } from "../middlewares/validateRequest.js";
 import { getByIdSchema } from "../schemas/core.schemas.js";
 import UserController from "../controllers/user.controller.js";
 import { authorizer } from "../middlewares/auth.middlewares.js";
-
+// import { inRole, Roles } from "../middlewares/role.js";
 const userRoutes = express.Router();
 
 userRoutes.get("/list", UserController.list);
@@ -27,6 +27,7 @@ userRoutes.get("/me",authorizer, UserController.getUser);
 
 userRoutes.post(
   "/create",
+  // inRole(Roles.ADMIN),
   validateRequest(createUserSchema),
   UserController.create
 );
