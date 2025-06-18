@@ -75,7 +75,7 @@ const candidatController = {
     async delete(req, res) {
         try {
             const { id } = req.params;
-            const candidat = await candidatRepo.findByIdAndDelete(id);
+            const candidat = await candidatRepo.deleteById(id);
             if (!candidat) {
                 return res.status(404).json({ message: "Candidat not found" });
             }
