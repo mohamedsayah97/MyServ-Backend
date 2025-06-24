@@ -27,7 +27,7 @@ const CandidatSchema = new mongoose.Schema(
     poste: {
       type: String,
     },
-    circumVitale: {
+    lienCV: {
       type: String,
     },
     adresse: {
@@ -45,7 +45,7 @@ const CandidatSchema = new mongoose.Schema(
     statut: {
       type: String,
       enum: ["Célibataire", "Fiancé", "Marié", "Divorcé"],
-      
+
       default: "Célibataire",
     },
     diplome: {
@@ -54,13 +54,27 @@ const CandidatSchema = new mongoose.Schema(
     experience: {
       type: String,
     },
+    recruteur: {
+      type: String,
+    },
     feedback: {
       type: String,
       required: true,
     },
     lien_compteRendu: {
       type: String,
-      
+    },
+    recruteur: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Users",
+      required: true,
+    },
+    commentaireRh: {
+      type: String,
+    },
+
+     Spéciality: {
+      type: String,
     },
   },
   {

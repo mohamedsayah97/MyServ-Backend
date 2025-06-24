@@ -88,7 +88,7 @@ const candidatController = {
         try {
             const { id } = req.params;
             const data = req.body;
-            const candidat = await candidatRepo.findByIdAndUpdate(id, data, { new: true });
+            const candidat = await candidatRepo.updateById(id, data, { new: true });
             if (!candidat) {
                 return res.status(404).json({ message: "Candidat not found" });
             }
