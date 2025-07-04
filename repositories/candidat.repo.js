@@ -22,7 +22,7 @@ const candidatRepo = {
       .sort({ createdAt: -1 });
   },
   async findById(id) {
-    return await CandidatModel.findById(id);
+    return await CandidatModel.findById(id).populate("recruteur", "nom prenom mail role");
   },
   async findOne(query) {
     return await CandidatModel.findOne(query);

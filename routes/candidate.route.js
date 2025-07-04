@@ -12,6 +12,7 @@ candidateRoutes.post(
     { name: "lienCV", maxCount: 1 },
     { name: "lien_compteRendu", maxCount: 1 },
   ]),
+  
   candidateController.create
 );
 candidateRoutes.put("/:id", candidateController.update);

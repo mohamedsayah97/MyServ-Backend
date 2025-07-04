@@ -24,9 +24,10 @@ const CandidatSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    poste: {
-      type: String,
-    },
+    // poste: {
+    //   type: String,
+    //   required: true,
+    // },
     lienCV: {
       type: String,
     },
@@ -54,9 +55,7 @@ const CandidatSchema = new mongoose.Schema(
     experience: {
       type: String,
     },
-    recruteur: {
-      type: String,
-    },
+   
     feedback: {
       type: String,
       required: true,
@@ -67,7 +66,7 @@ const CandidatSchema = new mongoose.Schema(
     recruteur: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Users",
-      required: true,
+      
     },
     commentaireRh: {
       type: String,
@@ -75,7 +74,19 @@ const CandidatSchema = new mongoose.Schema(
 
      Spéciality: {
       type: String,
+      enum: [
+        "IA",
+        "AdminDB",
+        "Analyste cybersécurité",
+        "Cloud",
+        "Réseau et Sécurité",
+        "Consultant SAP",
+        "Développeur fullstack",
+        "Data Scientist",
+      ],
+      required: true,
     },
+    reponse:[ String ],
   },
   {
     timestamps: true,
